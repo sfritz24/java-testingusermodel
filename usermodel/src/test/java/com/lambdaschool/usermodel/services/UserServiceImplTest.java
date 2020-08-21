@@ -83,6 +83,13 @@ public class UserServiceImplTest
         assertEquals(4, userService.findAll().size());
     }
 
+    @Test (expected = EntityNotFoundException.class)
+    public void zdeleteNotFound()
+    {
+        userService.delete(77);
+        assertEquals(4, userService.findAll().size());
+    }
+
     @Test
     public void afindByName()
     {
